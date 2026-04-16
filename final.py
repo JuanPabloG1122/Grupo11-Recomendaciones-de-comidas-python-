@@ -6,7 +6,7 @@
 
 
 z
-import colorama as c
+import colorama as c # hola pines
 from colorama import init, Fore, Back, Style
 
 # VARIABLES
