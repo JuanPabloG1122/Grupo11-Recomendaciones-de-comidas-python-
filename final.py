@@ -1,4 +1,3 @@
-
 ## --- SPRINT 2 ---
 #   1- Añadir dos promedios, uno general y otro condicionado (Este puede variar segun que comida del dia sea x ejempl)
 #   2- Justificar con los promedios anteriores la recomendacion final (Dentro de todo esto no tiene)
@@ -8,7 +7,8 @@
 import colorama as c
 from colorama import init, Fore, Back, Style
 
-# VARIABLES
+# BANDERAS
+tacc = False
 presupuesto = 0
 costo = 0
 cantidad = 0
@@ -17,9 +17,27 @@ comida = ""
 gusto = ""
 agregado = ""
 bebida = ""
-tacc = ""
 combo = ""
 dieta = ""
+
+# FUNCIONES
+def pregunta_si_no(pregunta):
+    print(c.Fore.GREEN + pregunta + c.Style.RESET_ALL)
+    x = input(sty_si_no + " ")
+    while True:
+        if x == "si" or x == "s" or x == "SI" or x == "S" :
+            resultado = True
+            break
+        elif x == "no" or x == "n" or x == "NO" or x == "N" :
+            resultado = True
+            break
+        else:
+            print(err_typo)
+            print(c.Fore.GREEN + pregunta + c.Style.RESET_ALL)
+            x = input(sty_si_no)
+    return resultado
+
+
 
 # ESTILIZACION (al chat gpt le pregunte lo basico, esto fue hecho por una persona de carne y hueso)
 sty_si_no = "(" + c.Fore.BLUE + "si" + c.Style.RESET_ALL + "/" + c.Fore.YELLOW +"no" + c.Style.RESET_ALL + ")"
@@ -66,16 +84,17 @@ while True:
                 print(err_typo)
                 presupuesto = 0
 
-    while tacc == "":
-        tacc = input(f"{c.Style.RESET_ALL}puedes comer tacc? {sty_si_no} ")
-        match tacc:
-            case "si":
-                break
-            case "no":
-                break
-            case _:
-                print(err_typo)
-                tacc = ""
+    tacc = pregunta_si_no("puedes comer tacc?")
+#    while tacc == "":
+#        tacc = input(f"{c.Style.RESET_ALL}puedes comer tacc? {sty_si_no} ")
+#        match tacc:
+#            case "si":
+#                break
+#            case "no":
+#                break
+#            case _:
+#                print(err_typo)
+#                tacc = ""
 
     dieta = input(f"estas siguiendo una dieta? {sty_si_no} ")
     while dieta:
@@ -419,10 +438,10 @@ else:
     poco_presupuesto = f"porque tu presupuesto ({c.Fore.GREEN}${presupuesto}{c.Style.RESET_ALL}) te alcanza"
 
 tacc_final = ""
-if tacc != "no":
-    tacc_final = "(sin tacc)"
-else:
+if tacc:
     tacc_final = ""
+else:
+    tacc_final = "(sin tacc)"
 
 costo_final = f"{c.Fore.GREEN}${costo * descuento}{c.Style.RESET_ALL}"
 
