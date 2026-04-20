@@ -85,16 +85,10 @@ while True:
                 presupuesto = 0
 
     tacc = pregunta_si_no("puedes comer tacc?")
-#    while tacc == "":
-#        tacc = input(f"{c.Style.RESET_ALL}puedes comer tacc? {sty_si_no} ")
-#        match tacc:
-#            case "si":
-#                break
-#            case "no":
-#                break
-#            case _:
-#                print(err_typo)
-#                tacc = ""
+
+
+    # TODO if pregunta_si_no("estas siguiendo una dieta? "):
+        #  . . .
 
     dieta = input(f"estas siguiendo una dieta? {sty_si_no} ")
     while dieta:
@@ -113,6 +107,10 @@ while True:
         elif (dieta == "no"  or dieta == "No" or dieta == "NO" or dieta == "n"):
             dieta = "keto" #!!!!!
             break
+
+
+    # TODO if pregunta_si_no(comida_del_dia):
+        # . . .
 
     comida_del_dia = input(f"de que comida del dia te interesa saber? ({sty_opciones}desayuno{c.Style.RESET_ALL}/{sty_opciones}almuerzo{c.Style.RESET_ALL}/{sty_opciones}merienda{c.Style.RESET_ALL}/{sty_opciones}cena{c.Style.RESET_ALL}) ")
     match comida_del_dia:
