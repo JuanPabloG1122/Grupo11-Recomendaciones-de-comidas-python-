@@ -5,7 +5,7 @@
 #   3- Con Maximos y minimos sacar datos de promedios con el punto 1
 
 
-zimport colorama as c
+import colorama as c
 from colorama import init, Fore, Back, Style
 
 # VARIABLES
