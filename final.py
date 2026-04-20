@@ -5,8 +5,7 @@
 #   3- Con Maximos y minimos sacar datos de promedios con el punto 1
 
 
-z
-import colorama as c # hola pines
+import colorama as c
 from colorama import init, Fore, Back, Style
 
 # VARIABLES
