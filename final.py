@@ -4,7 +4,6 @@
 #   3- Con Maximos y minimos sacar datos de promedios con el punto 1
 
 # TODO list
-# TODO debatir si vale la pena hacer una funcion y estilizar todo aunque corra varias veces (linea 26-27)
 # TODO adaptar el codigo a funciones
 # TODO arreglar lo del desayuno (si pones que no le manda mecha igual; linea 131)
 
@@ -34,10 +33,6 @@ combo = ""
 dieta = ""
 
 # FUNCIONES
-
-# def estilizador_comida(comida, precio):
-#     return f"{sty_fore_azul}{comida}{sty_reset}(${sty_fore_verde}{precio}{sty_reset})"
-
 def pregunta_si_no(pregunta):
     print(sty_fore_verde + pregunta + sty_reset)
     x = input(sty_si_no + " ")
