@@ -34,6 +34,14 @@ dieta = ""
 
 # FUNCIONES
 def pregunta_si_no(pregunta):
+    """pregunta si algo es si o no de manera estilizada y devuelve la respuesta
+
+    Args:
+        pregunta (String): la pregunta a ser impresa antes del si/no
+
+    Returns:
+        Boolean: verdadero o falso, dependiendo de si se responde si o no respectivamente
+    """
     print(sty_fore_verde + pregunta + sty_reset)
     x = input(sty_si_no + " ")
     while True:
