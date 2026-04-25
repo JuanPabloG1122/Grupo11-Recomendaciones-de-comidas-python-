@@ -35,10 +35,8 @@ dieta = ""
 # FUNCIONES
 def pregunta_si_no(pregunta):
     """pregunta si algo es si o no de manera estilizada y devuelve la respuesta
-
     Args:
         pregunta (String): la pregunta a ser impresa antes del si/no
-
     Returns:
         Boolean: verdadero o falso, dependiendo de si se responde si o no respectivamente
     """
@@ -57,6 +55,38 @@ def pregunta_si_no(pregunta):
             x = input(sty_si_no)
     return resultado
 
+def pregunta_dos_opciones(pregunta, opcion_uno, opcion_dos):
+    """pregunta si algo es una de dos opciones manera estilizada y devuelve la respuesta (en vez de preguntar si o no directamente)
+    Args:
+        pregunta (String): la pregunta a ser impresa antes del 1/2
+    Returns:
+        Integer: 1 o 2, dependiendo de con que se responde
+    """
+    print(f"{sty_fore_verde}{pregunta}{sty_reset}")
+    print(f"1: {sty_fore_azul}{opcion_uno}{sty_reset}")
+    print(f"2: {sty_fore_azul}{opcion_dos}{sty_reset}")
+    respuesta = int(input(f"{sty_fore_amarillo}opcion{sty_reset}: "))
+    if respuesta != 1 or respuesta != 2:
+        print(err_typo)
+        respuesta = int(input(f"{sty_fore_amarillo}opcion{sty_reset}: "))
+    return respuesta
+
+def pregunta_tres_opciones(pregunta, opcion_uno, opcion_dos, opcion_tres):
+    """pregunta si algo es una de las tres opciones de manera estilizada y devuelve la respuesta
+    Args:
+        pregunta (String): la pregunta a ser impresa antes de las opciones
+    Returns:
+        Integer: 1, 2 o 3; dependiendo de con que se responde
+    """
+    print(f"{sty_fore_verde}{pregunta}{sty_reset}")
+    print(f"1: {sty_fore_azul}{opcion_uno}{sty_reset}")
+    print(f"2: {sty_fore_azul}{opcion_dos}{sty_reset}")
+    print(f"3: {sty_fore_azul}{opcion_tres}{sty_reset}")
+    respuesta = int(input(f"{sty_fore_amarillo}opcion{sty_reset}: "))
+    if respuesta != 1 or respuesta != 2 or respuesta != 3:
+        print(err_typo)
+        respuesta = int(input(f"{sty_fore_amarillo}opcion{sty_reset}: "))
+    return respuesta
 
 # ESTILIZACION (al chat gpt le pregunte lo basico, esto fue hecho por una persona de carne y hueso)
 sty_fore_verde = "\033[32m"
@@ -105,7 +135,7 @@ while True:
     # TODO if pregunta_si_no("estas siguiendo una dieta? "):
         #  . . .
 
-    dieta = input(f"estas siguiendo una dieta? {sty_si_no} ")
+    dieta = pregunta_si_no(f"estas siguiendo una dieta? {sty_si_no} ")
     while dieta:
         if (dieta == "si" or dieta == "Si" or dieta == "SI" or dieta == "s"):
             dieta = input(f"cual dieta estas siguiendo? {sty_opciones}vegano{sty_reset}, {sty_opciones}vegetariano {sty_reset}o{sty_opciones} keto{sty_reset}? ")
